@@ -1,5 +1,6 @@
 var express = require('express')
- , http = require('http');
+ , http = require('http')
+ , bodyParser = require('body-parser');
 
 var app = express();
 
@@ -11,7 +12,7 @@ app.use(express.static(__dirname + '/public/images'));
 app.post('/data/',function(request,response,next){
 
 
-app.use(express.bodyParser());
+app.use(bodyParser());
 
    var keyName=request.query.Key;
    console.log(keyName);
