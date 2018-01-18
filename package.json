@@ -1,0 +1,29 @@
+{
+  "name": "iothon-serverside",
+  "version": "0.0.1",
+  "description": "IoThon code",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ojousima/iothon-serverside.git"
+  },
+  "keywords": [
+    "IoThon",
+    "IOTA",
+    "RuuviTag"
+  ],
+  "author": "Otso Jousimaa",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/ojousima/iothon-serverside/issues"
+  },
+  "homepage": "https://github.com/ojousima/iothon-serverside#readme"
+}
