@@ -7,7 +7,7 @@ const express = require('express')
 // not really used as we don't do any TX with value changes.
 const MWM = 15;
 const seed = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ9ABCDEFGHIJKLMNOPQRSTUVWXYZ9ABCDEFGHIJKLMNOPQRSTUVWXYZ9';
-const targetAddress = '999999999999999999999999999999999999999999999999999999999999999999999999999IOTHON';
+const targetAddress = '999999999999999999999999999999999999999999999999999999999999999999FILTERAESIOTHON';
 var targetTag = "9999HELLOIOTAFROMIOTHON9999"
 var depth = 1;
 const options = {}; //Empty
@@ -67,6 +67,9 @@ app.post('/data/',function(request,response,next){
   for (let ii = 0; ii < arrayLength; ii++) {
   	//Get data from each sample. 
     if(!lock && samples[ii].rawData && samples[ii].rawData.length > 12 ){
+    	//Ignore everything not Ruuvi encrypted data
+    	if(!samples[ii].rawData.startsWith("0201061BFF990406")) { console.log("skip"); continue; }
+    	console.log("Locking");
     	lock = true;
       //console.log(samples[ii].rawData);
       //const buf = Buffer.from(samples[ii].rawData, 'hex');
@@ -95,6 +98,7 @@ app.post('/data/',function(request,response,next){
       console.log("Transfer in pipe");
     }
   }
+  console.log("Received data");
   response.send('hello world');
 } );
 
