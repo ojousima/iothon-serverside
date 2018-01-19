@@ -1,6 +1,6 @@
 {
   "name": "iothon-serverside",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "IoThon code",
   "main": "index.js",
   "dependencies": {
